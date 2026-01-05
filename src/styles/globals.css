@@ -1,0 +1,645 @@
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --font-size: 16px;
+  --background: #ffffff;
+  --foreground: #191A1C;
+  --card: #ffffff;
+  --card-foreground: #191A1C;
+  --popover: #ffffff;
+  --popover-foreground: #191A1C;
+  --primary: #BFAB39;
+  --primary-foreground: #191A1C;
+  --secondary: #7B9096;
+  --secondary-foreground: #191A1C;
+  --muted: #eeeeee;
+  --muted-foreground: #717182;
+  --accent: #9DA597;
+  --accent-foreground: #191A1C;
+  --destructive: #d4183d;
+  --destructive-foreground: #ffffff;
+  --border: rgba(0, 0, 0, 0.1);
+  --input: transparent;
+  --input-background: #f3f3f5;
+  --switch-background: #cbced4;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --ring: #BFAB39;
+  --chart-1: #BFAB39;
+  --chart-2: #7B9096;
+  --chart-3: #9DA597;
+  --chart-4: #95B4BF;
+  --chart-5: #191A1C;
+  --radius: 0.625rem;
+  --sidebar: #7B9096;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #BFAB39;
+  --sidebar-primary-foreground: #191A1C;
+  --sidebar-accent: #9DA597;
+  --sidebar-accent-foreground: #191A1C;
+  --sidebar-border: rgba(0, 0, 0, 0.1);
+  --sidebar-ring: #BFAB39;
+
+  /* Worklink Brand Colors */
+  --vie-slate-gray: #7B9096;
+  --vie-dark-charcoal: #191A1C;
+  --vie-muted-olive: #9DA597;
+  --vie-gold: #BFAB39;
+  --vie-dusty-teal: #95B4BF;
+  --vie-light-gray: #eeeeee;
+  --vie-white: #ffffff;
+}
+
+.dark {
+  --background: #191A1C;
+  --foreground: #ffffff;
+  --card: #191A1C;
+  --card-foreground: #ffffff;
+  --popover: #191A1C;
+  --popover-foreground: #ffffff;
+  --primary: #BFAB39;
+  --primary-foreground: #191A1C;
+  --secondary: #7B9096;
+  --secondary-foreground: #ffffff;
+  --muted: #333333;
+  --muted-foreground: #9DA597;
+  --accent: #9DA597;
+  --accent-foreground: #ffffff;
+  --destructive: #d4183d;
+  --destructive-foreground: #ffffff;
+  --border: rgba(255, 255, 255, 0.1);
+  --input: #333333;
+  --ring: #BFAB39;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --chart-1: #BFAB39;
+  --chart-2: #7B9096;
+  --chart-3: #9DA597;
+  --chart-4: #95B4BF;
+  --chart-5: #ffffff;
+  --sidebar: #191A1C;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #BFAB39;
+  --sidebar-primary-foreground: #191A1C;
+  --sidebar-accent: #333333;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: rgba(255, 255, 255, 0.1);
+  --sidebar-ring: #BFAB39;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/**
+ * Base typography. This is not applied to elements which have an ancestor with a Tailwind text class.
+ */
+@layer base {
+  :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) {
+    h1 {
+      font-size: var(--text-2xl);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h2 {
+      font-size: var(--text-xl);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h3 {
+      font-size: var(--text-lg);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h4 {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    p {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.5;
+    }
+
+    label {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    button {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    input {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.5;
+    }
+  }
+}
+
+html {
+  font-size: var(--font-size);
+}
+
+/* Custom Animations for Worklink */
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes energy-flow {
+  0% {
+    text-shadow: 0 0 5px var(--vie-gold);
+  }
+
+  50% {
+    text-shadow: 0 0 20px var(--vie-gold), 0 0 30px var(--vie-gold);
+  }
+
+  100% {
+    text-shadow: 0 0 5px var(--vie-gold);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes rotate-3d {
+  from {
+    transform: rotateY(0deg);
+  }
+
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+@keyframes spark {
+
+  0%,
+  100% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Animation Classes */
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-energy-flow {
+  animation: energy-flow 3s ease-in-out infinite;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.8s ease-out forwards;
+}
+
+.animate-fade-in.delay-300 {
+  animation-delay: 0.3s;
+}
+
+.animate-fade-in.delay-600 {
+  animation-delay: 0.6s;
+}
+
+.animate-slide-in-left {
+  animation: slide-in-left 0.8s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.8s ease-out forwards;
+}
+
+.animate-rotate-3d {
+  animation: rotate-3d 10s linear infinite;
+}
+
+.animate-spark {
+  animation: spark 2s ease-in-out infinite;
+}
+
+/* Glassmorphism Effects */
+.glassmorphism {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark .glassmorphism {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Interactive Elements */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.hover-glow {
+  transition: box-shadow 0.3s ease;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 20px rgba(191, 171, 57, 0.3);
+}
+
+/* Kinetic Typography */
+.kinetic-text {
+  background: linear-gradient(-45deg, var(--vie-gold), var(--vie-dusty-teal), var(--vie-gold));
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: energy-flow 4s ease-in-out infinite;
+}
+
+/* Service Cards Enhanced */
+.service-card {
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  backdrop-filter: blur(5px);
+}
+
+.service-card:hover {
+  border-color: var(--vie-gold);
+  transform: translateY(-6px) rotateX(2deg);
+  box-shadow: 0 15px 35px rgba(191, 171, 57, 0.2), 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.service-card .icon-container {
+  transition: all 0.4s ease;
+  transform-style: preserve-3d;
+}
+
+.service-card:hover .icon-container {
+  transform: scale(1.15) rotate(8deg) rotateY(15deg);
+  box-shadow: 0 8px 20px rgba(191, 171, 57, 0.3);
+}
+
+/* Card-specific animations for different service types */
+.service-card:nth-child(1) .icon-container {
+  background: linear-gradient(135deg, var(--vie-gold), #d4af37);
+}
+
+.service-card:nth-child(2) .icon-container {
+  background: linear-gradient(135deg, var(--vie-gold), var(--vie-dusty-teal));
+}
+
+.service-card:nth-child(3) .icon-container {
+  background: linear-gradient(135deg, var(--vie-gold), #8b7b3a);
+}
+
+.service-card:nth-child(4) .icon-container {
+  background: linear-gradient(135deg, #d4183d, #ff4757);
+}
+
+/* Emergency service red pulse animation */
+.service-card:nth-child(4):hover .icon-container {
+  animation: emergency-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes emergency-pulse {
+
+  0%,
+  100% {
+    box-shadow: 0 0 10px rgba(212, 24, 61, 0.5);
+  }
+
+  50% {
+    box-shadow: 0 0 25px rgba(212, 24, 61, 0.8), 0 0 35px rgba(212, 24, 61, 0.6);
+  }
+}
+
+/* Specialty service energy pulse */
+.service-card:nth-child(3) .icon-container {
+  position: relative;
+}
+
+.service-card:nth-child(3):hover .icon-container::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: inherit;
+  background: linear-gradient(45deg, var(--vie-gold), var(--vie-dusty-teal), var(--vie-gold));
+  background-size: 200% 200%;
+  animation: energy-border 2s linear infinite;
+  z-index: -1;
+  opacity: 0.7;
+}
+
+@keyframes energy-border {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Micro-animations for interactive elements */
+.micro-bounce {
+  animation: micro-bounce 0.6s ease-in-out;
+}
+
+@keyframes micro-bounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+/* Progress indicators */
+.progress-glow {
+  background: linear-gradient(90deg, transparent, var(--vie-gold), transparent);
+  background-size: 200% 100%;
+  animation: progress-sweep 2s linear infinite;
+}
+
+@keyframes progress-sweep {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Trust Indicators Enhanced */
+.trust-indicator {
+  transition: all 0.3s ease;
+}
+
+.trust-indicator:hover {
+  transform: translateY(-3px) scale(1.02);
+}
+
+.trust-indicator .icon-container {
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.trust-indicator:hover .icon-container::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(191, 171, 57, 0.1), transparent);
+  transform: rotate(45deg);
+  animation: shimmer 0.8s ease-out;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+
+  100% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
+}
+
+/* Geographic callout animation */
+.geo-callout {
+  animation: gentle-bounce 2s ease-in-out infinite;
+}
+
+@keyframes gentle-bounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+/* Enhanced CTA section */
+.cta-enhanced {
+  background: linear-gradient(135deg,
+      rgba(191, 171, 57, 0.05) 0%,
+      rgba(123, 144, 150, 0.05) 50%,
+      rgba(191, 171, 57, 0.05) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-enhanced::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(191, 171, 57, 0.05),
+      transparent);
+  animation: slide-shimmer 3s ease-in-out infinite;
+}
+
+@keyframes slide-shimmer {
+  0% {
+    left: -100%;
+  }
+
+  50% {
+    left: 100%;
+  }
+
+  100% {
+    left: -100%;
+  }
+}
+
+/* Button enhancements */
+.btn-enhanced {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-enhanced::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btn-enhanced:hover::after {
+  width: 300px;
+  height: 300px;
+}
+
+/* Staggered animation for service cards */
+.service-card:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.service-card:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.service-card:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.service-card:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+/* Responsive animations */
+@media (prefers-reduced-motion: reduce) {
+
+  .animate-pulse-glow,
+  .animate-energy-flow,
+  .animate-fade-in,
+  .animate-slide-in-left,
+  .animate-slide-in-right,
+  .animate-rotate-3d,
+  .animate-spark,
+  .kinetic-text,
+  .emergency-pulse,
+  .energy-border,
+  .shimmer,
+  .gentle-bounce,
+  .slide-shimmer {
+    animation: none;
+  }
+
+  .hover-lift:hover,
+  .service-card:hover,
+  .trust-indicator:hover {
+    transform: none;
+  }
+}
