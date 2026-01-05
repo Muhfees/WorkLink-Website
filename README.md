@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
   # Van Isle Electrical Website
 
@@ -9,3 +10,6 @@
 
   Run `npm run dev` to start the development server.
   
+=======
+# WorkLink
+>>>>>>> 47cd218210eca9bec23b1ea5831e44cf2623713f
