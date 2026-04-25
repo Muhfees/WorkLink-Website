@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from './ui/button';
 import { Badge } from './ui/badge';
 import { ImageWithFallback } from './figma/ImageWithFallback';
@@ -12,21 +12,23 @@ import {
   CheckCircle
 } from 'lucide-react';
 
+const basePath = ((import.meta as any).env?.BASE_URL as string) || '/';
+
 const backgroundImages = [
   {
-    src: "/WorkLink-Website/hero-1.jpg",
+    src: `${basePath}hero-1.jpg`,
     alt: "Professional construction worker on building site"
   },
   {
-    src: "/WorkLink-Website/hero-2.jpg",
+    src: `${basePath}hero-2.jpg`,
     alt: "Service professional with taxi"
   },
   {
-    src: "/WorkLink-Website/hero-3.jpg",
+    src: `${basePath}hero-3.jpg`,
     alt: "Delivery service professional with scooter"
   },
   {
-    src: "/WorkLink-Website/hero-4.jpg",
+    src: `${basePath}hero-4.jpg`,
     alt: "Professional workers in warehouse facility"
   },
   {
