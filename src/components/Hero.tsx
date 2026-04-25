@@ -14,19 +14,19 @@ import {
 
 const backgroundImages = [
   {
-    src: "/hero-1.jpg",
+    src: "/WorkLink-Website/hero-1.jpg",
     alt: "Professional construction worker on building site"
   },
   {
-    src: "/hero-2.jpg",
+    src: "/WorkLink-Website/hero-2.jpg",
     alt: "Service professional with taxi"
   },
   {
-    src: "/hero-3.jpg",
+    src: "/WorkLink-Website/hero-3.jpg",
     alt: "Delivery service professional with scooter"
   },
   {
-    src: "/hero-4.jpg",
+    src: "/WorkLink-Website/hero-4.jpg",
     alt: "Professional workers in warehouse facility"
   },
   {
